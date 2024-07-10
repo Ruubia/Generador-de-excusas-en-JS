@@ -22,11 +22,6 @@ window.onload = function() {
   function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
   }
-  // Generar excusa aleatoria
-  let whoRan = getRandomElement(who.length);
-  let actionRan = getRandomElement(action.length);
-  let whatRan = getRandomElement(what.length);
-  let whenRan = getRandomElement(when.length);
 
   function generateExcuse() {
     let excuse = `${getRandomElement(who)} ${getRandomElement(
