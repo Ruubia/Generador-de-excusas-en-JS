@@ -19,19 +19,25 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  let whoRan = Math.floor(Math.random() * who.length);
-  let actionRan = Math.floor(Math.random() * action.length);
-  let whatRan = Math.floor(Math.random() * what.length);
-  let whenRan = Math.floor(Math.random() * when.length);
+  function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+  // Generar excusa aleatoria
+  let whoRan = getRandomElement(who.length);
+  let actionRan = getRandomElement(action.length);
+  let whatRan = getRandomElement(what.length);
+  let whenRan = getRandomElement(when.length);
 
-  let excuse =
-    who[whoRan] +
-    " " +
-    action[actionRan] +
-    " " +
-    what[whatRan] +
-    " " +
-    when[whenRan];
+  function generateExcuse() {
+    let excuse = `${getRandomElement(who)} ${getRandomElement(
+      action
+    )} ${getRandomElement(what)} ${getRandomElement(when)}`;
+    return excuse;
+  }
 
-  document.getElementById("excuse").innerText = excuse;
+  document
+    .getElementById("generate-excuse-button")
+    .addEventListener("click", function() {
+      document.getElementById("excuse").innerHTML = generateExcuse();
+    });
 };
